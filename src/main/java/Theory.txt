@@ -1,0 +1,9 @@
+1. Wzorzec projektowy przedstawia typowe rozwiązanie problemów często napotkanych przy tworzeniu oprogramowania.
+   Stanowi coś na kształt gotowego planu, który można dostosować, aby rozwiązać powtarzający się problem w kodzie.
+   Wzorzec nie jest konkretnym fragmentem kodu, który można skopiować i rozwiązać nim dany problem, ale ogólną koncepcją
+   pozwalającą rozwiązać dany problem.
+
+   Wzorce często myli się z algorytmami, ponieważ obie koncepcje opisują typowe rozwiązanie jakiegoś znanego problemu.
+   Algorytm jednak zawsze definiuje wyraźny zestaw czynności które prowadzą do celu, zaś wzorzec to wysokopoziomowy opis rozwiązania.
+   Kod powstały na podstawie jednego wzorca może wyglądać zupełnie inaczej w różnych programach.
+
