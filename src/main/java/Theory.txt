@@ -1,4 +1,5 @@
-1. Wzorzec projektowy przedstawia typowe rozwiązanie problemów często napotkanych przy tworzeniu oprogramowania.
+1. Wzorzec projektowy
+   Wzorzec projektowy przedstawia typowe rozwiązanie problemów często napotkanych przy tworzeniu oprogramowania.
    Stanowi coś na kształt gotowego planu, który można dostosować, aby rozwiązać powtarzający się problem w kodzie.
    Wzorzec nie jest konkretnym fragmentem kodu, który można skopiować i rozwiązać nim dany problem, ale ogólną koncepcją
    pozwalającą rozwiązać dany problem.
@@ -36,7 +37,6 @@
     Mówi się tu o dodatkowych warstwach abstrakcji, które pozwalają na zmianę kierunku takiej zależności.
 
 3. Dziedziczenie
-
    Jest to mechanizm, który pozwala na rozszerzanie funkcjonalności obiektów poprzez hierarchiczne powiązanie ich ze sobą tzn.
    jeden obiekt dziedziczy zachowania i stan od drugiego.
 
@@ -84,8 +84,154 @@ public class Main {
 }
 
 4. Polimorfizm
+   Polimorfizm czyli inaczej wielopostaciowość. Klasy pochodne mogą dziedziczyć zachowania i stan klas nadrzędnych, ale także mogą zmieniać
+   te zachowania i stan. Weźmy pod uwagę na przykład stos (rozumiany jako lista obsługiwana zgodnie ze strategią pierwszy na wejściu – ostatni
+   na wyjściu (ang. last-in, first-out — LIFO). Możesz napisać program, który będzie wymagał użycia trzech typów stosu.
+   Jeden będzie przechowywał wartości całkowite, drugi wartości zmiennoprzecinkowe, a ostatni znaki.
+   We wszystkich tych przypadkach algorytm implementujący stos będzie taki sam, mimo że poszczególne stosy przechowują różne dane.
+   W języku programowania strukturalnego musiałbyś jednak utworzyć trzy różne zestawy operacji na stosie różniące się nazwami i
+   parametrami funkcji. W języku Java dzięki polimorfizmowi wystarczy utworzyć jeden ogólny zestaw operacji na stosie,
+   które będą działać we wszystkich trzech przypadkach. Zatem jeśli potrafisz posługiwać się w Javie jednym stosem,
+   to możesz korzystać z najróżniejszych typów stosów.
 
-   Kolejnym zagadnieniem związanym także z dziedziczeniem jest polimorfizm, czyli w skrócie wielopostaciowość.
-   Klasy pochodne mogą dziedziczyć zachowania i stan swoich klas nadrzędnych, ale także mogą zmieniać te zachowanie i stan.
-   I to do tego właśnie w dużej mierze sprowadza się polimorfizm.
+5. Hermetyzacja
+   Hermetyzacja polega na decydowaniu jak pole i metody danego obiektu mają być widoczne dla innych obiektów. Chodzi o stworzenie
+   pewnego rodzaju czarnej skrzynki, do której możemy przekazywać dane oraz otrzymywać użyteczne wyjście, natomiast kod wewnętrzny
+   nie może podlegać próbom ingerencji z zewnątrz. Różne stopnie hermetyzacji otrzymujemy dzięki modyfikatorom dostępu: public, protected,
+   private oraz no modifier.
 
+   Public - ogólny dostęp
+   Protected - umożliwia dostęp do pól i metod dla klasy, klasy dziedziczącej oraz innym klasom w tym samym pakiecie
+   private - umożliwia dostęp do pól i metod tylko dla klasy, nie będą one widoczne w tym samym pakiecie ani klasie dziedziczącej
+   brak modyfikatora - pola i metody są widoczne tylko w klasie i pakiecie. Działa jak private, ale umożliwia operowanie w obszarze pakietu
+
+   Używając hermetyzacje uodparniamy naszą klasę na błędy. Wystarczy ukryć pola klasy i wystawić metody, które będą zwracały kopię pól i
+   dzięki temu nasza klasa będzie niezmienna.
+
+6. String pool
+   String pool jest specjalnym miejscem w pamięci, do którego trafiają niektóre obiekty typu Stringi – dokładnie te, które nie
+   są tworzone poprzez użycie operatora new. String pool został stworzony w celu optymalizacji JVM, dzięki niemu wiele obiektów
+   Stringów o tej samej wartości wskazują na ten sam obszar pamięci. String pool zapewnia mniejsze zużycie pamięci – String jest
+   zazwyczaj najszczęściej używanym typem w Javie. Dodatkowo przyśpiesza to porównywanie Stringów – jest duże prawdopodobieństwo,
+   że kilka obiektów wskazuje na ten sam obszar pamięci. Skoro mają tą samą referencję to dalsze porównywanie jest zbędne.
+
+   public class Main {
+     public static void main(String[] args) {
+       String pablo1 = "pablo";
+       String pablo2 = "pablo";
+       String pablo3 = new String(pablo1);
+       String pablo4 = new String(pablo2);
+       System.out.println(pablo1 == pablo2);
+       System.out.println(pablo3 == pablo4);
+       System.out.println(pablo1.equals(pablo3));
+       System.out.println(pablo3.equals(pablo4));
+     }
+   }
+
+   Efekt działania:
+   true
+   false
+   true
+   true
+
+7. Dependency injection
+   Jest to wzorzec projektowy/mechanizm, w którym obiekt nie tworzy obiektów, które wykorzystywane są wewnątrz.
+   Dzięki temu, nie wiążemy się z konkretną implementacją, a także nie musimy znać parametrów konstruowanego obiektu.
+   Operując na interfejsach stajemy się niezależni od konkretnej implementacji, a nasz kod zaczyna realizować Open/Closed principle.
+   Zależności mogą być dostarczane (wstrzykiwane) na wiele sposobów. Na przykład poprzez wywołanie “seterów” czy dostarczenie
+   niezbędnych parametrów konstruktora. Bez wstrzykiwania wszystkie zależności tworzone są przez obiekt, który ich wymaga.
+   Prowadzi to do kodu, który jest trudny do testowania i mocno związany z konkretną implementacją zależności.
+
+8. Wyciek pamięci
+   Wyciek pamięci następuje wtedy, kiedy dane obiekty nie są już używane przez aplikację, ale garbage collector nie jest
+   w stanie ich usunąć, ponieważ w naszej aplikacji nadal są przechowywane do nich referencje. W rezultacie zużywane jest
+   coraz więcej zasobów znacząco spowalniając naszą aplikację, aż do momentu, kiedy ich braknie i rzucony zostanie OutOfMemoryError.
+
+9. Garbage Collector
+   Garbage Collector to aplikacja, która nieustannie dba o pamięć naszej aplikacji. Gdyby nie GC, pamięć naszego programu
+   zapełniłaby się bardzo szybko – uniemożliwiałoby to dalszą pracę programu. Garbage Collector stale monitoruje obiekty
+   naszej aplikacji, kiedy oznaczy je jako już nie potrzebne – zabiera się za czyszczenie pamięci z niepotrzebnych już
+   „śmieciowych” obiektów.
+
+   Algorytmy, które wykorzystuje Garbage Collector możemy podzielić na dwa zasadnicze typy: skalarne i wektorowe.
+   Algorytm skalarny - Idea algorytmów skalarnych polega na skojarzeniu z każdym obiektem licznika, który wskazuje na liczbę odwołań (referencji).
+   Algorytm wektorowy - dea ich działania polega na umieszczeniu wszystkich obiektów w grafie, przejściu całego grafu i oznaczeniu obiektów,
+   do których udało nam się dotrzeć. Obiekty bez referencji zostaną usunięte podczas pracy Garbage Collectora.
+
+10.Obiekt immutable
+   Obiekt niezmienny (immutable) to taki, który po utworzeniu i inicjalizacji pozostaje niezmienny i co ważne,
+   nie ma możliwości jego zmiany (oczywiście w konwencjonalny sposób). Czyli taki obiekt nie udostępnia metod, które pozwalają
+   na zmianę jego stanu. A jego wszystkie pola są prywatne.
+
+   Zapewnienie niezmienności
+   Poza tym, że wszystkie pola powinny być prywatne, to mogą być jeszcze final. A sama klasa powinna być oznaczona jako final tak,
+   żeby nie można było po niej dziedziczyć. Taki obiekt nie powinien udostępniać metod, które pozwalają modyfikować jego wewnętrzny stan,
+   np. setterów.
+
+   Ale prywatne pola to jeszcze nie wszystko. Ważne jest, jakie typy danych przechowujemy w tych polach. One też powinny być niezmienne.
+   Jeśli pola w twoim obiekcie są prymitywami, wrapperami prymitywów lub stringami to nie ma problemu. Wszystkie te typy są niezmienne.
+   Ale jeśli używasz własnych obiektów, to musisz zapewnić ich niezmienność. ajbardziej wygodnym sposobem do tworzenia obiektów niezmiennych
+   jest skorzystanie ze wzorca builder. Żeby użycie buildera było możliwe, musi on być zaimplementowany wewnątrz danej klasy,
+   tak by miał dostęp do prywatnych pól klasy.
+
+11. Wyrażenia lambda
+    lambdy pozwalają na pisanie kodu w sposób funkcyjny. Oznacza to, że zamiast operować na stanach obiektów możemy bezpośrednio deklarować,
+    co chcemy zrobić. Odnosząc lambdy do programowania obiektowego, możemy o nich myśleć jak o klasach tymczasowych zawierających jedną
+    metodę. Lambdy to obiekty, zawierające fragment kodu: funkcję, a także specyficzne atrybuty i parametry ważne dla nich (środowisko,
+    w ramach którego operuje funkcja).
+
+    // Tradycyjna pętla
+    for (String animal : animals) {
+    System.out.print(animal + "; ");
+    }
+
+    // Wyrażenie lambda
+    animals.forEach((animal) -> System.out.print(animal + "; "));
+
+12. Strumienie
+    Strumień reprezentuje sekwencje elementów i pozwala na różne operacje na tych elementach. Operacje te mogą być pośrednie i takie
+    możemy układać w łańcuchy metod, oraz końcowe, zwracające wynik, lub nie.
+
+    List fruits = Arrays.asList("apple", "banana", "cherry", "plum", "pear", "pinapple");
+
+    fruits.stream().filter(s -> s
+                    .toString()
+                    .startsWith("p"))
+                    .map(s -> s.toString().toUpperCase())
+                    .sorted()
+                    .forEach(System.out::println);
+
+    Efekt działania:
+    PEAR
+    PINAPPLE
+    PLUM
+
+13. Wyjątki
+    Wyjątek jest specjalną klasą. Jest ona specyficzna ponieważ w swoim łańcuchu dziedziczenia ma klasę java.lang.Throwable.
+    Instancje, które w swojej hierarchii dziedziczenia mają tę klasę mogą zostać „rzucone” (ang. throw) przerywając standardowe
+    wykonanie programu.
+
+    Obsługa wyjątków - Mówimy, że wyjątek jest obsługiwany, jeśli reagujemy na jego wystąpienie i próbujemy “naprawić” program
+    w trakcie jego działania. Możemy też powiedzieć, że łapiemy wyjątek.  Do obsługi wyjątków służy blok try/catch.
+
+    Każdy wyjątek w języku Java dziedziczy po klasie Throwable. Wyróżniamy dwa rodzaje wyjątków, tak zwane “checked exceptions”
+    oraz “unchecked exceptions”. Różnica między nimi sprowadza się do tego, że te pierwsze muszą być obsłużone przez programistę,
+    wymaga tego kompilator. Przykładowym wyjątkiem typu unchecked jest IllegalArgumentException, natomiast IOException jest wyjątkiem
+    typu checked.
+
+    Reguła podziału wyjątków na te dwa rodzaje jest prosta. Jeśli wyjątek w swojej hierarchii dziedziczenia ma Exception i nie ma
+    RuntimeException jest wyjątkiem typu checked. W każdym innym przypadku jest to wyjątek typu unchecked.
+
+    Wyjątek można obsłużyć na dwa sposoby. Drugi sprowadza się do “zepchnięcia” odpowiedzialności obsłużenia wyjątku o poziom niżej,
+    do metody wywołującej. Służy do tego klauzula throws, którą dodajemy do deklaracji metody.
+
+14. Klasa abstrakcyjna
+    Klasy abstrakcyjne są to klasy, która nie mogą mieć swoich reprezentantów w postaci obiektów. Klasa abstrakcyjna jest pewnym
+    uogólnieniem innych klas (na przykład dla występujących w rzeczywistości obiektów), lecz sama jako taka nie istnieje.
+    W Javie klasę abstrakcyjną możemy stworzyć za pomocą słowa kluczowego abstract, które dodajemy do definicji standardowej klasy.
+    Klasy abstrakcyjne służą jedynie do definiowania klas o charakterze abstrakcyjnym wykorzystywanym do dziedziczenia przez inne klasy.
+    Abstrakcyjność klasy oznacza, iż nie można tworzyć jej egzemplarzy (obiektów).
+
+15. Interfejsy to typy, które są bardzo podobne do klas, ale mogą zawierać jedynie stałe i deklaracje metod.  Interfejsy nie mogą mieć stanu.
+    Służą one do definiowania zachowania dla obiektów. Ale inaczej niż w przypadku klasy abstrakcyjnej nie definiują tego zachowania
+    (metody nie mają implementacji). Każda klasa implementująca interfejs musi mieć implementację metod zawartych w interfejsie.
