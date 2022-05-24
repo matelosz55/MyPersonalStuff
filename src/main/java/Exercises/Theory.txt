@@ -154,8 +154,8 @@ public class Main {
    „śmieciowych” obiektów.
 
    Algorytmy, które wykorzystuje Garbage Collector możemy podzielić na dwa zasadnicze typy: skalarne i wektorowe.
-   Algorytm skalarny - Idea algorytmów skalarnych polega na skojarzeniu z każdym obiektem licznika, który wskazuje na liczbę odwołań (referencji).
-   Algorytm wektorowy - dea ich działania polega na umieszczeniu wszystkich obiektów w grafie, przejściu całego grafu i oznaczeniu obiektów,
+   Algorytm skalarny - idea algorytmów skalarnych polega na skojarzeniu z każdym obiektem licznika, który wskazuje na liczbę odwołań (referencji).
+   Algorytm wektorowy - idea ich działania polega na umieszczeniu wszystkich obiektów w grafie, przejściu całego grafu i oznaczeniu obiektów,
    do których udało nam się dotrzeć. Obiekty bez referencji zostaną usunięte podczas pracy Garbage Collectora.
 
 10.Obiekt immutable
@@ -170,7 +170,7 @@ public class Main {
 
    Ale prywatne pola to jeszcze nie wszystko. Ważne jest, jakie typy danych przechowujemy w tych polach. One też powinny być niezmienne.
    Jeśli pola w twoim obiekcie są prymitywami, wrapperami prymitywów lub stringami to nie ma problemu. Wszystkie te typy są niezmienne.
-   Ale jeśli używasz własnych obiektów, to musisz zapewnić ich niezmienność. ajbardziej wygodnym sposobem do tworzenia obiektów niezmiennych
+   Ale jeśli używasz własnych obiektów, to musisz zapewnić ich niezmienność. najbardziej wygodnym sposobem do tworzenia obiektów niezmiennych
    jest skorzystanie ze wzorca builder. Żeby użycie buildera było możliwe, musi on być zaimplementowany wewnątrz danej klasy,
    tak by miał dostęp do prywatnych pól klasy.
 
@@ -235,3 +235,14 @@ public class Main {
 15. Interfejsy to typy, które są bardzo podobne do klas, ale mogą zawierać jedynie stałe i deklaracje metod.  Interfejsy nie mogą mieć stanu.
     Służą one do definiowania zachowania dla obiektów. Ale inaczej niż w przypadku klasy abstrakcyjnej nie definiują tego zachowania
     (metody nie mają implementacji). Każda klasa implementująca interfejs musi mieć implementację metod zawartych w interfejsie.
+
+16. Kolekcje - List, Set, Map
+    Lista - Lista podobnie jak tablica, grupuje elementy. Jej główną przewagą nad tablicą jest to, że programista nie musi się
+    przejmować rozmiarem listy, jest ona automatycznie powiększana wraz z dodawaniem nowych elementów.
+    LinkedList lepiej jest używać jeśli często usuwasz elementy z listy, a ArrayList lepiej jest używać jeśli często chcesz mieć
+    dostęp do losowych elementów w liście.
+
+    Set - Zbiór to kolekcja, która służy do przechowywania unikalnych elementów. W przypadku zbioru nie jest istotna kolejność
+    dodawanych elementów. Innymi słowy jeśli do zbioru dodamy na początku element X a później Y to przechodząc po kolei po
+    elementach zbioru możemy dostać je w odwrotnej kolejności. Kolejną cechą zbioru jest to, że przechowuje on unikalne elementy.
+    W odróżnieniu od listy, w zbiorze można przechowywać wyłącznie jedną instancję obiektu.
