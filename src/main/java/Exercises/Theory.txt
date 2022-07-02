@@ -246,3 +246,21 @@ public class Main {
     dodawanych elementów. Innymi słowy jeśli do zbioru dodamy na początku element X a później Y to przechodząc po kolei po
     elementach zbioru możemy dostać je w odwrotnej kolejności. Kolejną cechą zbioru jest to, że przechowuje on unikalne elementy.
     W odróżnieniu od listy, w zbiorze można przechowywać wyłącznie jedną instancję obiektu.
+
+17. Overloading (przeladowanie) - Overloading możemy wykorzystać, gdy mamy jedną metodę, która przyjmuje zmienną
+    liczbę argumentów, albo argumenty o różnych typach. Przeciążać możemy metody (także statyczne) i konstruktory.
+    Overloading pojawia się, gdy w jednej klasie mamy dwie metody (lub więcej), które mają taką samą nazwę, ale różnią się parametrami.
+    Na kursie pojawiła się definicja sygnatury metody.
+    Przypomnijmy, że sygnatura składa się z:
+        ● nazwy metody,
+        ● listy parametrów wraz z zadeklarowanymi typami.
+    Nie można zdefiniować w klasie dwóch metod, które mają identyczną sygnaturę - kompilator zgłosi błąd.
+
+    Dodatkowe informacje: https://www.programiz.com/java-programming/method-overloading
+
+18. Overriding - pojęcie to związane jest z dziedziczeniem. Mamy dwie metody - jedna jest wklasie bazowej, a druga w klasie pochodnej.
+    Metoda w klasie pochodnej przesłania metodę z nadklasy. Zatem, wykorzystując overriding, mamy możliwość zdefiniowania
+    specyficznego zachowania metody w klasie pochodnej. Jeśli chcemy zmienić implementację w podklasie - nad jej sygnaturą dodajemy adnotację
+    @Override. Nie jest to co prawda konieczne, jednak zdecydowanie należy do dobrych praktyk oraz pozwala uniknąć wielu błędów.
+
+    Dodatkowe informacje: https://www.geeksforgeeks.org/overriding-in-java/
