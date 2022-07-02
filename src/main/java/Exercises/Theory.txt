@@ -101,9 +101,15 @@ public class Main {
    private oraz no modifier.
 
    Public - ogólny dostęp
-   Protected - umożliwia dostęp do pól i metod dla klasy, klasy dziedziczącej oraz innym klasom w tym samym pakiecie
+
+   Protected - umożliwia dostęp do pól i metod dla klasy, klasy dziedziczącej oraz innym klasom w tym samym pakiecie.
+   Modyfikator protected moze byc stosowany do pola, metod, konstruktora, ale nie moze byc stosowany do oznaczenia klasy
+
    private - umożliwia dostęp do pól i metod tylko dla klasy, nie będą one widoczne w tym samym pakiecie ani klasie dziedziczącej
+
    brak modyfikatora - pola i metody są widoczne tylko w klasie i pakiecie. Działa jak private, ale umożliwia operowanie w obszarze pakietu
+
+   https://www.javatpoint.com/access-modifiers
 
    Używając hermetyzacje uodparniamy naszą klasę na błędy. Wystarczy ukryć pola klasy i wystawić metody, które będą zwracały kopię pól i
    dzięki temu nasza klasa będzie niezmienna.
@@ -264,3 +270,5 @@ public class Main {
     @Override. Nie jest to co prawda konieczne, jednak zdecydowanie należy do dobrych praktyk oraz pozwala uniknąć wielu błędów.
 
     Dodatkowe informacje: https://www.geeksforgeeks.org/overriding-in-java/
+
+19. Java "static" keyword: https://www.baeldung.com/java-static
