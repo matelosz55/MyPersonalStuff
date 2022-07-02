@@ -4,7 +4,7 @@ public class Window {
     private Weather weather;
 
     public Window(){
-        this.weather = new Weather();
+        //this.weather = new Weather();
     }
 
     public void lookOut(){
