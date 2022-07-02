@@ -8,3 +8,6 @@ https://www.youtube.com/watch?v=t2HRMeBizsY&ab_channel=MikeM%C3%B8llerNielsen
 
 Factory Method Design pattern explanation:
 https://www.youtube.com/watch?v=EdFq_JIThqM&t=118s&ab_channel=Geekific
+
+Abstract Factory Design pattern explanation:
+https://www.youtube.com/watch?v=QNpwWkdFvgQ&ab_channel=Geekific
