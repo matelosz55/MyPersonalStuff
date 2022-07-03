@@ -307,3 +307,20 @@ public class Main {
     - Jesli klasa wewnetrzan nie wymaga dostepu do zadnych czlonkow instancji klasy zewnetrznej, lepiej osnaczyc klase jako statyczna- wzrost optymalizacji pamieci.
 
 
+20. Java "final" keyword: https://www.baeldung.com/java-final
+
+    - Final Classes: klasa oznaczona jako "final" nie moze miec klas dziedziczacych. Nie znaczy to jednak, ze instancje klasy final sa immutable, mozna je zmieniac.
+    - Final Methods: Metody oznaczone jako final nie moga byc przysloniete (Overridden). Moga wykonywac konkretna akcje.
+    - Final Variable: Zmienne oznaczone jako final nie moga byc zmieniane ani nie moga byc ponownie przypisywane
+    - Final Reference Variable: Jesli tworzymy obiekt klasy Cat:
+
+    final Cat cat = new Cat();
+    obiekt ten nie moze zostac ponownie przypisany lecz mozliwa jest zmiana wlasciwosci tego obiektu przez settery:
+
+    cat.setWeight(5);
+    assertEquals(5, cat.getWeight()); ---> zwraca True.
+
+    - Final Fields: Pola oznaczone jako final sa uznawane jako stale. Wszystkie pola final powinny zostac zainicjalizowane zanim wykona sie konstruktor.
+    - Final Arguments: oznaczenie final mozna stosowac do argumentow jakie przyjmuja metody. Argumenty te nie moga byc zmienione wenatrz metody.
+
+
