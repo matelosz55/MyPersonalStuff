@@ -253,6 +253,14 @@ public class Main {
     elementach zbioru możemy dostać je w odwrotnej kolejności. Kolejną cechą zbioru jest to, że przechowuje on unikalne elementy.
     W odróżnieniu od listy, w zbiorze można przechowywać wyłącznie jedną instancję obiektu.
 
+    Map - java.util interface reprezentuje mape pomiedzy kluczem i wartoscia. Klucze w mapie sa unikalne.
+    Kolejnosc Mapy zalezy od jej implementacji, np. TreeMap oraz LinkedHashMap maja okreslone kolejnosci, a HashMap nie.
+    Sa dwa interfejsy implementujace Map w Javie, SortedMap i Map, SortedMap rozszerza Map, oraz trzy klasy: HashMap, TreeMap, LinkedHashMap
+    TreeMap implementuje Interfejs SortedMap,
+    HashMap implementuje Interfejs Map,
+    LinkedHashMap rozszerza Klase HashMap.
+    Polecam przesledzenie diagramu na stronie: https://www.geeksforgeeks.org/map-interface-java-examples/
+
 17. Overloading (przeladowanie) - Overloading możemy wykorzystać, gdy mamy jedną metodę, która przyjmuje zmienną
     liczbę argumentów, albo argumenty o różnych typach. Przeciążać możemy metody (także statyczne) i konstruktory.
     Overloading pojawia się, gdy w jednej klasie mamy dwie metody (lub więcej), które mają taką samą nazwę, ale różnią się parametrami.
@@ -278,7 +286,7 @@ public class Main {
 
 
     - metody static: metody statyczne naleza tak samo jak pola statyczne do Klasy a nie do obiektu klasy, w ktorej metoda ta sie znajduje.
-    Dzieki temu, mozemy wywolywac te metody bez tworzenia obiektu danej klasy, w ktore metoda jest zadeklarowana.
+    Dzieki temu, mozemy wywolywac te metody bez tworzenia obiektu danej klasy, w ktorej metoda jest zadeklarowana.
     Metody statycznie moga byc przyslaniane (Overridden)
     Metody abstrakcyjne nie moda byc statyczne
     Metody statycznie nie moga uzywac wyrazen "this" lub "super"
@@ -304,7 +312,7 @@ public class Main {
     Powody dla ktorych uzywa sie klas statycznych:
     - grupowanie klas, ktore beda uzywane tylko w jednym miejscu podnosci enkapsulacje
     - tworzymy kod tylko w tym miejscu gdzie bedzie uzywany - wzrost czytelnosci kodu oraz ulatwienie zarzadzania lub edycji
-    - Jesli klasa wewnetrzan nie wymaga dostepu do zadnych czlonkow instancji klasy zewnetrznej, lepiej osnaczyc klase jako statyczna- wzrost optymalizacji pamieci.
+    - Jesli klasa wewnetrzan nie wymaga dostepu do zadnych czlonkow instancji klasy zewnetrznej, lepiej oznaczyc klase jako statyczna- wzrost optymalizacji pamieci.
 
 
 20. Java "final" keyword: https://www.baeldung.com/java-final
@@ -323,4 +331,14 @@ public class Main {
     - Final Fields: Pola oznaczone jako final sa uznawane jako stale. Wszystkie pola final powinny zostac zainicjalizowane zanim wykona sie konstruktor.
     - Final Arguments: oznaczenie final mozna stosowac do argumentow jakie przyjmuja metody. Argumenty te nie moga byc zmienione wenatrz metody.
 
+21. Java Abstract Class
+    Klasa abstrakcyja moze byc rozszerzana ale nie moze zostac stwozony z niej zadna instancja.
+    Aby klasa mogla byc abstrakcyjna, musi posiadac przynajmniej jedna metode abstrakcyjna.
+    Poza metodadami abstrakcyjnymi moze posiadac normalne metody.
+    Klasa dziedziczaca po klasie abstrakcyjnej, musi implementowac wszystkie metody abstrakcyjne klasy nadrzednej
+    lub sama powinna byc abstrakcyjna jesli tego nie robi
 
+
+22. Java Interface
+
+23. Java Collections
