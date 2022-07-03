@@ -272,3 +272,38 @@ public class Main {
     Dodatkowe informacje: https://www.geeksforgeeks.org/overriding-in-java/
 
 19. Java "static" keyword: https://www.baeldung.com/java-static
+    - pola static: Kiedy deklarowane jest pole "static" dokladnie jedna kopia tego pola jest tworzona oraz dzielona przez
+    wszystkie instancje tej klasy. Nie ma znaczenia ile razy zainicjalizujemy klase, zwsze bedzie dokladnie jedna kopia pola static.
+    Wartosc tego pola bedzie dzielona przez wszystkie obiekty tej samej klasy lub innej. (polecam przyklady z zalaczonego linka).
+
+
+    - metody static: metody statyczne naleza tak samo jak pola statyczne do Klasy a nie do obiektu klasy, w ktorej metoda ta sie znajduje.
+    Dzieki temu, mozemy wywolywac te metody bez tworzenia obiektu danej klasy, w ktore metoda jest zadeklarowana.
+    Metody statycznie moga byc przyslaniane (Overridden)
+    Metody abstrakcyjne nie moda byc statyczne
+    Metody statycznie nie moga uzywac wyrazen "this" lub "super"
+
+
+    - Klasa static: Uzywane kiedy piszemy kod deklarujac klase w klasie:
+
+    public class Singleton  {
+        private Singleton() {}
+
+        private static class SingletonHolder {
+            public static final Singleton instance = new Singleton();
+        }
+
+        public static Singleton getInstance() {
+            return SingletonHolder.instance;
+        }
+    }
+
+    Klasa statyczna "SingletonHolder" utowrzona w klasie zewnetrznej "Songleton" bedzie miala dostep jedynie do statycznych
+    czlonkow tej klasy, czyli metody "getInstance()".
+
+    Powody dla ktorych uzywa sie klas statycznych:
+    - grupowanie klas, ktore beda uzywane tylko w jednym miejscu podnosci enkapsulacje
+    - tworzymy kod tylko w tym miejscu gdzie bedzie uzywany - wzrost czytelnosci kodu oraz ulatwienie zarzadzania lub edycji
+    - Jesli klasa wewnetrzan nie wymaga dostepu do zadnych czlonkow instancji klasy zewnetrznej, lepiej osnaczyc klase jako statyczna- wzrost optymalizacji pamieci.
+
+
