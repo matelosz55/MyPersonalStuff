@@ -1,15 +1,13 @@
 package RecruitmentInterview;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class SolarWindsInterviewTask {
 
 
     public static void main(String[] args) {
-         String text1= "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Iure igitur gravissimi philosophi initium summi boni a natura petiverunt et illum appetitum rerum ad naturam accommodatarum ingeneratum putaverunt omnibus, quia continentur ea commendatione naturae, qua se ipsi diligunt. Quod si ita est, ut neque quisquam nisi bonus vir et omnes boni beati sint, quid philosophia magis colendum aut quid est virtute divinius? Si ad corpus pertinentibus, rationes tuas te video compensare cum istis doloribus, non memoriam corpore perceptarum voluptatum; Pungunt quasi aculeis interrogatiunculis angustis, quibus etiam qui assentiuntur nihil commutantur animo et idem abeunt, qui venerant. Aufidio, praetorio, erudito homine, oculis capto, saepe audiebam, cum se lucis magis quam utilitatis desiderio moveri diceret. Dat enim id nobis solitudo, quod si qui deus diceret, numquam putarem me in Academia tamquam philosophum disputaturum. \n" +
+        String text1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Iure igitur gravissimi philosophi initium summi boni a natura petiverunt et illum appetitum rerum ad naturam accommodatarum ingeneratum putaverunt omnibus, quia continentur ea commendatione naturae, qua se ipsi diligunt. Quod si ita est, ut neque quisquam nisi bonus vir et omnes boni beati sint, quid philosophia magis colendum aut quid est virtute divinius? Si ad corpus pertinentibus, rationes tuas te video compensare cum istis doloribus, non memoriam corpore perceptarum voluptatum; Pungunt quasi aculeis interrogatiunculis angustis, quibus etiam qui assentiuntur nihil commutantur animo et idem abeunt, qui venerant. Aufidio, praetorio, erudito homine, oculis capto, saepe audiebam, cum se lucis magis quam utilitatis desiderio moveri diceret. Dat enim id nobis solitudo, quod si qui deus diceret, numquam putarem me in Academia tamquam philosophum disputaturum. \n" +
                 "\n" +
                 "Et nunc quidem quod eam tuetur, ut de vite potissimum loquar, est id extrinsecus; At vero Callipho et post eum Diodorus, cum is alter voluptatem adamavisset, alter vacuitatem doloris, neuter honestate carere potuit, quae est a nostris laudata maxime. Hoc autem loco tantum explicemus haec honesta, quae dico, praeterquam quod nosmet ipsos diligamus, praeterea suapte natura per se esse expetenda. Atque his tribus generibus honestorum notatis quartum sequitur et in eadem pulchritudine et aptum ex illis tribus, in quo inest ordo et moderatio. Et summatim quidem haec erant de corpore animoque dicenda, quibus quasi informatum est quid hominis natura postulet. Theophrastum tamen adhibeamus ad pleraque, dum modo plus in virtute teneamus, quam ille tenuit, firmitatis et roboris. Eamne rationem igitur sequere, qua tecum ipse et cum tuis utare, profiteri et in medium proferre non audeas? Quis enim tam inimicus paene nomini Romano est, qui Ennii Medeam aut Antiopam Pacuvii spernat aut reiciat, quod se isdem Euripidis fabulis delectari dicat, Latinas litteras oderit? \n" +
                 "\n" +
@@ -19,7 +17,7 @@ public class SolarWindsInterviewTask {
                 "\n" +
                 "Duo Reges: constructio interrete. Itaque Epicurus semper hoc utitur, ut probet voluptatem natura expeti, quod ea voluptas, quae in motu sit, et parvos ad se alliciat et bestias, non illa stabilis, in qua tantum inest nihil dolere. Ita, quae mutat, ea corrumpit, quae sequitur sunt tota Democriti, atomi, inane, imagines, quae eidola nominant, quorum incursione non solum videamus, sed etiam cogitemus; Quia, cum a Zenone, inquam, hoc magnifice tamquam ex oraculo editur: Virtus ad beate vivendum se ipsa contenta est, et Quare? E quo efficitur, non ut nos non intellegamus quae vis sit istius verbi, sed ut ille suo more loquatur, nostrum neglegat. Quod praeceptum quia maius erat, quam ut ab homine videretur, idcirco assignatum est deo. Illum mallem levares, quo optimum atque humanissimum virum, Cn. E quo efficitur, non ut nos non intellegamus quae vis sit istius verbi, sed ut ille suo more loquatur, nostrum neglegat. Quo posito et omnium adsensu adprobato illud adsumitur, eum, qui magno sit animo atque forti, omnia, quae cadere in hominem possint, despicere ac pro nihilo putare. Et hanc quidem primam exigam a te operam, ut audias me quae a te dicta sunt refellentem.";
 
-         String text2 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Haec mirabilia videri intellego, sed cum certe superiora firma ac vera sint, his autem ea consentanea et consequentia, ne de horum quidem est veritate dubitandum. Atque etiam ad iustitiam colendam, ad tuendas amicitias et reliquas caritates quid natura valeat haec una cognitio potest tradere. Quid ergo dubitamus, quin, si non dolere voluptas sit summa, non esse in voluptate dolor sit maximus? Ergo in iis adolescentibus bonam spem esse dicemus et magnam indolem, quos suis commodis inservituros et quicquid ipsis expediat facturos arbitrabimur? Aderamus nos quidem adolescentes, sed multi amplissimi viri, quorum nemo censuit plus Fadiae dandum, quam posset ad eam lege Voconia pervenire. Duo Reges: constructio interrete. Graece ergo praetor Athenis, id quod maluisti, te, cum ad me accedis, saluto: chaere, inquam, Tite! lictores, turma omnis chorusque: chaere, Tite! hinc hostis mi Albucius, hinc inimicus. Ex quo intellegitur nec intemperantiam propter se esse fugiendam temperantiamque expetendam, non quia voluptates fugiat, sed quia maiores consequatur. Earum etiam rerum, quas terra gignit, educatio quaedam et perfectio est non dissimilis animantium. Num igitur dubium est, quin, si in re ipsa nihil peccatur a superioribus, verbis illi commodius utantur? Magno hic ingenio, sed res se tamen sic habet, ut nimis imperiosi philosophi sit vetare meminisse. Non ergo Epicurus ineruditus, sed ii indocti, qui, quae pueros non didicisse turpe est, ea putant usque ad senectutem esse discenda. Quin etiam ferae, inquit Pacuvius, quíbus abest, ad praécavendum intéllegendi astútia, iniecto terrore mortis horrescunt. Quippe, inquieta cum tam docuerim gradus istam rem non habere quam virtutem, in qua sit ipsum etíam beatum. Non ego iam Epaminondae, non Leonidae mortem huius morti antepono, quorum alter cum vicisset Lacedaemonios apud Mantineam atque ipse gravi vulnere exanimari se videret, ut primum dispexit, quaesivit salvusne esset clipeus. Quam haec sunt contraria! hic si definire, si dividere didicisset, si loquendi vim, si denique consuetudinem verborum teneret, numquam in tantas salebras incidisset. Quae duo sunt, unum facit. In eo autem voluptas omnium Latine loquentium more ponitur, cum percipitur ea, quae sensum aliquem moveat, iucunditas. \n" +
+        String text2 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Haec mirabilia videri intellego, sed cum certe superiora firma ac vera sint, his autem ea consentanea et consequentia, ne de horum quidem est veritate dubitandum. Atque etiam ad iustitiam colendam, ad tuendas amicitias et reliquas caritates quid natura valeat haec una cognitio potest tradere. Quid ergo dubitamus, quin, si non dolere voluptas sit summa, non esse in voluptate dolor sit maximus? Ergo in iis adolescentibus bonam spem esse dicemus et magnam indolem, quos suis commodis inservituros et quicquid ipsis expediat facturos arbitrabimur? Aderamus nos quidem adolescentes, sed multi amplissimi viri, quorum nemo censuit plus Fadiae dandum, quam posset ad eam lege Voconia pervenire. Duo Reges: constructio interrete. Graece ergo praetor Athenis, id quod maluisti, te, cum ad me accedis, saluto: chaere, inquam, Tite! lictores, turma omnis chorusque: chaere, Tite! hinc hostis mi Albucius, hinc inimicus. Ex quo intellegitur nec intemperantiam propter se esse fugiendam temperantiamque expetendam, non quia voluptates fugiat, sed quia maiores consequatur. Earum etiam rerum, quas terra gignit, educatio quaedam et perfectio est non dissimilis animantium. Num igitur dubium est, quin, si in re ipsa nihil peccatur a superioribus, verbis illi commodius utantur? Magno hic ingenio, sed res se tamen sic habet, ut nimis imperiosi philosophi sit vetare meminisse. Non ergo Epicurus ineruditus, sed ii indocti, qui, quae pueros non didicisse turpe est, ea putant usque ad senectutem esse discenda. Quin etiam ferae, inquit Pacuvius, quíbus abest, ad praécavendum intéllegendi astútia, iniecto terrore mortis horrescunt. Quippe, inquieta cum tam docuerim gradus istam rem non habere quam virtutem, in qua sit ipsum etíam beatum. Non ego iam Epaminondae, non Leonidae mortem huius morti antepono, quorum alter cum vicisset Lacedaemonios apud Mantineam atque ipse gravi vulnere exanimari se videret, ut primum dispexit, quaesivit salvusne esset clipeus. Quam haec sunt contraria! hic si definire, si dividere didicisset, si loquendi vim, si denique consuetudinem verborum teneret, numquam in tantas salebras incidisset. Quae duo sunt, unum facit. In eo autem voluptas omnium Latine loquentium more ponitur, cum percipitur ea, quae sensum aliquem moveat, iucunditas. \n" +
                 "\n" +
                 "Omnes, qui non sint sapientes, aeque miseros esse, sapientes omnes summe beatos, recte facta omnia aequalia, omnia peccata paria; Ut ad minora veniam, mathematici, poëtae, musici, medici denique ex hac tamquam omnium artificum officina profecti sunt. Et qui ipsi sibi bellum indixissent, cruciari dies, noctes torqueri vellent, nec vero sese ipsi accusarent ob eam causam, quod se male suis rebus consuluisse dicerent. Atque his tribus generibus honestorum notatis quartum sequitur et in eadem pulchritudine et aptum ex illis tribus, in quo inest ordo et moderatio. Ita miser sit aliquando necesse est is, quem vos beatum semper vultis esse, nec vero id, dum omnia ad voluptatem doloremque referetis, efficietis umquam. Suis cuiusque sensibus sic, ut, contra si quis dicere velit, non audiatur -, tamen, ne quid praetermittamus, rationes quoque, cur hoc ita sit, afferendas puto. Aderamus nos quidem adolescentes, sed multi amplissimi viri, quorum nemo censuit plus Fadiae dandum, quam posset ad eam lege Voconia pervenire. Ita cum ea volunt retinere, quae superiori sententiae conveniunt, in Aristonem incidunt; Non prorsus, inquit, omnisque, qui sine dolore sint, in voluptate, et ea quidem summa, esse dico. Nunc haec primum fortasse audientis servire debemus. Quarum adeo omnium sententia pronuntiabit primum de voluptate nihil esse ei loci, non modo ut sola ponatur in summi boni sede, quam quaerimus, sed ne illo quidem modo, ut ad honestatem applicetur. Neque enim in aliqua parte, sed in perpetuitate temporis vita beata dici solet, nec appellatur omnino vita, nisi confecta atque absoluta, nec potest quisquam alias beatus esse, alias miser; Quam haec sunt contraria! hic si definire, si dividere didicisset, si loquendi vim, si denique consuetudinem verborum teneret, numquam in tantas salebras incidisset. Mihi enim satis est, ipsis non satis. Vide, ne magis, inquam, tuum fuerit, cum re idem tibi, quod mihi, videretur, non nova te rebus nomina inponere. Multosque etiam dolores curationis causa perferant, ut, si ipse usus membrorum non modo non maior, verum etiam minor futurus sit, eorum tamen species ad naturam revertatur? Quid est, quod ab ea absolvi et perfici debeat? Graece ergo praetor Athenis, id quod maluisti, te, cum ad me accedis, saluto: chaere, inquam, Tite! lictores, turma omnis chorusque: chaere, Tite! hinc hostis mi Albucius, hinc inimicus. \n" +
                 "\n" +
@@ -28,47 +26,38 @@ public class SolarWindsInterviewTask {
                 "Quae si a vobis talia dicerentur, qualibus Caius Marius uti poterat, ut expulsus, egens, in palude demersus tropaeorum recordatione levaret dolorem suum, audirem et plane probarem. E quo efficitur, non ut nos non intellegamus quae vis sit istius verbi, sed ut ille suo more loquatur, nostrum neglegat. Si enim sapiens aliquis miser esse possit, ne ego istam gloriosam memorabilemque virtutem non magno aestimandam putem. Nam omnia, quae sumenda quaeque legenda aut optanda sunt, inesse debent in summa bonorum, ut is, qui eam adeptus sit, nihil praeterea desideret. Quod autem magnum dolorem brevem, longinquum levem esse dicitis, id non intellego quale sit. Cum efficere non possit ut cuiquam, qui ipse sibi notus sit, hoc est qui suam naturam sensumque perspexerit, vacuitas doloris et voluptas idem esse videatur. \n" +
                 "\n" +
                 "Et hanc quidem primam exigam a te operam, ut audias me quae a te dicta sunt refellentem. Quicquid enim a sapientia proficiscitur, id continuo debet expletum esse omnibus suis partibus; Quid enim perversius, quid intolerabilius, quid stultius quam bonam valetudinem, quam dolorum omnium vacuitatem, quam integritatem oculorum reliquorumque sensuum ponere in bonis potius, quam dicerent nihil omnino inter eas res iisque contrarias interesse? Propter nos enim illam, non propter eam nosmet ipsos diligimus. Hic homo severus luxuriam ipsam per se reprehendendam non putat, et hercule, Torquate, ut verum loquamur, si summum bonum voluptas est, rectissime non putat. An eum discere ea mavis, quae cum plane perdidiceriti nihil sciat? Haec mirabilia videri intellego, sed cum certe superiora firma ac vera sint, his autem ea consentanea et consequentia, ne de horum quidem est veritate dubitandum. Est enim natura sic generata vis hominis, ut ad omnem virtutem percipiendam facta videatur, ob eamque causam parvi virtutum simulacris, quarum in se habent semina, sine doctrina moventur; Sin te auctoritas commovebat, nobisne omnibus et Platoni ipsi nescio quem illum anteponebas? Sit voluptas non minor in nasturcio illo, quo vesci Persas esse solitos scribit Xenophon, quam in Syracusanis mensis, quae a Platone graviter vituperantur; Quin etiam ferae, inquit Pacuvius, quíbus abest, ad praécavendum intéllegendi astútia, iniecto terrore mortis horrescunt. Illa enim, quae sunt a nobis bona corporis numerata, complent ea quidem beatissimam vitam, sed ita, ut sine illis possit beata vita existere. \n";
-        String text1WithoutSigns = text1.replaceAll("[-+.^:,?;][\\n]","");
-        String text2WithoutSigns = text1.replaceAll("[-+.^:,?;][\\n]","");
-        String[] string1Divided = text1.split(" ");
-        String[] string2Divided = text2.split(" ");
-        HashMap<String,Integer> list1 = new HashMap<>();
-        HashMap<String,Integer> list2 = new HashMap<>();
 
-        for (int i = 0; i < string1Divided.length; i++){
-            if (list1.containsKey(string1Divided[i])){
-                list1.put(string1Divided[i],list1.get(string1Divided[i])+1);
-            } else {
-                list1.put(string1Divided[i],1);
-            }
-        }
-        for (int i = 0; i < string2Divided.length; i++){
-            if (list2.containsKey(string2Divided[i])){
-                list2.put(string2Divided[i],list2.get(string2Divided[i])+1);
-            } else {
-                list2.put(string2Divided[i],1);
-            }
+
+        String text1WithoutSigns = text1.replaceAll("[,.\\n]", "");
+        String text2WithoutSigns = text2.replaceAll("[,.\\n]", "");
+
+        String[] list1Devided = text1WithoutSigns.split(" ");
+        List<String> list1 = new ArrayList<>(Arrays.asList(list1Devided));
+
+        String[] list2Devided = text1WithoutSigns.split(" ");
+        List<String> list2 = new ArrayList<>(Arrays.asList(list2Devided));
+
+        HashMap<String, Integer> map = new HashMap<>();
+
+        for (String s : list1Devided) {
+            map.put(s, 0);
         }
 
+        int k = 0;
+        for (String s : list1) {
+            k=0;
+            for (String value : list2) {
+                if (s.equals(value)) {
+                    k++;
+                  map.put(s, k);
+                }
+            }
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        System.out.println(map);
 
     }
 
 
-    }
+}
 
